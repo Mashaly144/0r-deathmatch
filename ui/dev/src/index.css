@@ -69,16 +69,32 @@ div#root > main {
   }
 }
 
-.mainbackground {
-  background-image: linear-gradient(
-    to top,
-    rgb(20 5 46 / 90%),
-    rgba(22, 24, 29, 0.96)
-  );
-}
 .subbackground {
   background-color: rgba(255, 255, 255, 0.04);
   border: #ffffff14 2px solid;
   background-color: #753ada;
   box-shadow: 0 0 15px #753ada;
+}
+
+.mainbackground {
+  background-image: linear-gradient(
+    to top,
+    rgba(20, 5, 46, 0.9),
+    rgba(22, 24, 29, 0.96)
+  );
+}
+
+.contentBackground {
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 5px;
+}
+.vs-word {
+  font-family: 'supercharge', sans-serif; /* لو عندك الخط */
+  font-size: 100px;
+  font-weight: bold;
+  text-align: center;
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px #753ada, 0 0 20px #ffffff;
 }

@@ -15,14 +15,14 @@ export const Header = ({ goHome }: { goHome?: boolean }) => {
       <button
         onClick={handleGoBack}
         className={classNames(
-          'p-2 bg-white/20 border-2 border-white/20 rounded-sm',
+          'p-2 contentBackground border-2 border-border rounded-sm',
           {
             'cursor-default': !goHome,
           }
         )}
       >
         {goHome ? (
-          <MdKeyboardArrowLeft className='w-8 h-8' />
+          <MdKeyboardArrowLeft className='w-4 h-4 ' />
         ) : (
           <img src='images/icons/weapon_m4.svg' alt='weapon_m4' />
         )}

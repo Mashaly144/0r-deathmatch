@@ -23,7 +23,6 @@ export default {
           'radial-gradient(69.19% 36.84% at 50% 80.26%, rgba(255, 255, 255, 0.05) 0%, rgba(153, 153, 153, 0.05) 100%)',
         'lobby-1':
           'radial-gradient(69.19% 36.84% at 50% 80.26%, rgba(255, 255, 255, 0.10) 0%, rgba(153, 153, 153, 0.10) 100%)',
-        main: 'linear-gradient(180deg, #16181df5 0%, #14052ee6 100%)',
       },
     },
     boxShadow: {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { BiSolidLeftArrow } from 'react-icons/bi';
 
 type StatCardProps = {
   title: string;
@@ -11,7 +12,8 @@ const StatCard: React.FC<StatCardProps> = ({ title, value }) => (
     dir='rtl'
   >
     <div className='flex items-center gap-5'>
-      <div className='w-0 h-0 border-t-[15px] border-b-[15px] border-r-[15px] border-transparent border-r-violet-500'></div>
+      {/* <div className='w-0 h-0 border-t-[15px] border-b-[15px] border-r-[15px] border-transparent border-r-violet-500'></div> */}
+      <BiSolidLeftArrow className='w-6 h-6 text-violet-500' />
       <span className='text-white text-xl font-tajawal'>{title}</span>
     </div>
     <span className='text-white/80 text-xl font-bold'>{value}</span>

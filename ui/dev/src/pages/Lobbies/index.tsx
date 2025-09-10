@@ -1,12 +1,11 @@
-import { Header } from "@/components/Header";
-import { Loading } from "@/components/Loading";
-import useData from "@/hooks/useData";
-import { iLoby } from "@/types/BasicTypes";
-import { fetchNui } from "@/utils/fetchNui";
-import { isEnvBrowser } from "@/utils/misc";
-import classNames from "classnames";
-import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { Header } from '@/components/Header';
+import { Loading } from '@/components/Loading';
+import useData from '@/hooks/useData';
+import { iLoby } from '@/types/BasicTypes';
+import { fetchNui } from '@/utils/fetchNui';
+import { isEnvBrowser } from '@/utils/misc';
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const Lobbies = () => {
   const { t } = useTranslation();
@@ -18,33 +17,33 @@ export const Lobbies = () => {
 
   useEffect(() => {
     const fetchLobbies = () => {
-      fetchNui("nui:getActiveLobbies", true, [
+      fetchNui('nui:getActiveLobbies', true, [
         {
           game_time: 5,
           id: 1,
           leader: {
-            name: "Ali Koç",
+            name: 'Ali Koç',
             source: 1,
             kd_rate: 1.0,
           },
-          map: { name: "de_default", image: "example" },
-          members: [{ name: "Ali Koç", source: 1, team: 1, kd_rate: 1.0 }],
+          map: { name: 'de_default', image: 'example' },
+          members: [{ name: 'Ali Koç', source: 1, team: 1, kd_rate: 1.0 }],
           mode: 2,
-          name: "Lobby #1",
+          name: 'Lobby #1',
           started: true,
         } as iLoby,
         {
           game_time: 5,
           id: 1,
           leader: {
-            name: "Ali Koç",
+            name: 'Ali Koç',
             source: 1,
             kd_rate: 1.0,
           },
-          map: { name: "de_default", image: "example" },
-          members: [{ name: "Ali Koç", source: 1, team: 1, kd_rate: 1.0 }],
+          map: { name: 'de_default', image: 'example' },
+          members: [{ name: 'Ali Koç', source: 1, team: 1, kd_rate: 1.0 }],
           mode: 2,
-          name: "Lobby #1",
+          name: 'Lobby #1',
           started: false,
         } as iLoby,
       ]).then((result) => {
@@ -66,43 +65,42 @@ export const Lobbies = () => {
 
   const handleJoinLobby = async (lobbyId: number) => {
     setIsReady(false);
-    const result = await fetchNui("nui:joinLobby", lobbyId, true);
+    const result = await fetchNui('nui:joinLobby', lobbyId, true);
     if (!result) {
-      const l = await fetchNui("nui:getActiveLobbies", true, [] as iLoby[]);
+      const l = await fetchNui('nui:getActiveLobbies', true, [] as iLoby[]);
       setLobbies(l);
     } else if (!isEnvBrowser()) {
-      setPage("create-lobby");
+      setPage('create-lobby');
     }
     setIsReady(true);
   };
 
   return (
-    <div className="relative w-full h-full px-16 py-32 flex flex-col gap-6">
-      <Header goHome={true} />
-      <div className="pb-20 w-full h-full lg:w-3/4 xl:w-2/3 2xl:w-1/2 3xl:w-[45%] flex flex-col gap-3">
-        <h1 className="text-xl  uppercase">{t("lobbies")}</h1>
+    <div className='relative w-full h-full px-16 py-32 flex flex-col justify-center items-center gap-6 mainbackground'>
+      <div className='pb-20 w-full h-full lg:w-3/4 xl:w-2/3 2xl:w-1/2 3xl:w-[50%] flex flex-col gap-3'>
+        <div className='w-full flex justify-between items-center gap-6 mb-5'>
+          <h1 className='text-2xl'>الغرفة</h1>
+          <Header goHome={true} />
+        </div>
         {isReady ? (
-          <div className="relative overflow-x-auto scrollbar-hide">
-            <table className="w-full h-full text-sm text-left rtl:text-right">
-              <thead className="text-white/55">
+          <div className='relative overflow-x-auto scrollbar-hide contentBackground'>
+            <table className='w-full h-full text-sm border-2 border-border'>
+              <thead className='text-white border-b-2 border-border bg-[#ffffff0d]'>
                 <tr>
-                  <th scope="col" className="px-6 py-2 bg-black/25 rounded-tl">
-                    {t("leader")}
+                  <th scope='col' className='px-6 py-2 '>
+                    القائد
                   </th>
-                  <th scope="col" className="px-6 py-2 bg-black/25">
-                    {t("map")}
+                  <th scope='col' className='px-6 py-2 '>
+                    الخريطة
                   </th>
-                  <th scope="col" className="px-6 py-2 bg-black/25">
-                    {t("time")}
+                  <th scope='col' className='px-6 py-2 '>
+                    الوقت
                   </th>
-                  <th scope="col" className="px-6 py-2 bg-black/25 text-center">
-                    {t("player")}
+                  <th scope='col' className='px-6 py-2'>
+                    اللاعب
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-2 bg-black/25 rounded-tr text-right"
-                  >
-                    {t("management")}
+                  <th scope='col' className='px-6 py-2 '>
+                    الإدارة
                   </th>
                 </tr>
               </thead>
@@ -116,46 +114,31 @@ export const Lobbies = () => {
                   .map((lobby, i) => (
                     <tr
                       key={i}
-                      className="odd:bg-lobby-1 even:bg-lobby-2 "
+                      className='odd:border-b-2 border-border text-center'
                     >
                       <th
-                        scope="row"
-                        className="px-6 py-4 font-medium whitespace-nowrap text-white"
+                        scope='row'
+                        className='px-6 py-4 font-medium whitespace-nowrap text-white'
                       >
                         {lobby?.leader?.name}
                       </th>
-                      <td className="px-6 py-4">{lobby?.map?.name}</td>
-                      <td className="px-6 py-4">
-                        {lobby.game_time} {t("minutes")}
+                      <td className='px-6 py-4'>{lobby?.map?.name}</td>
+                      <td className='px-6 py-4'>
+                        {lobby.game_time} {t('minutes')}
                       </td>
-                      <td className="px-6 py-4 text-center">
+                      <td className='px-6 py-4 '>
                         {lobby.members.length}
-                        {"/"}
+                        {'/'}
                         {lobby.mode * 2}
                       </td>
-                      <td className="px-6 py-4 text-right">
+                      <td className='px-6 py-4 '>
                         <button
                           onClick={() =>
                             !lobby.started && handleJoinLobby(lobby.id)
                           }
-                          className={classNames("border rounded", {
-                            "cursor-not-allowed": lobby.started,
-                          })}
-                          style={{
-                            border: lobby.started
-                              ? "1px solid rgba(255, 97, 83, 0.25)"
-                              : "1px solid rgba(255, 241, 83, 0.25)",
-                            background: lobby.started
-                              ? "radial-gradient(50% 50% at 50% 50%, rgba(255, 97, 83, 0.25) 0%, rgba(176, 55, 57, 0.25) 100%)"
-                              : "radial-gradient(50% 50% at 50% 50%, rgba(255, 241, 83, 0.25) 0%, rgba(153, 144, 50, 0.25) 100%)",
-                            boxShadow: lobby.started
-                              ? "0px 0px 12.8px 0px rgba(255, 97, 83, 0.25) inset"
-                              : "0px 0px 12.8px 0px rgba(255, 241, 83, 0.25) inset",
-                          }}
+                          className='border-border rounded bg-primary hover:shadow-violetGlow font-semibold py-2 px-6 min-w-[100px] hover:brightness-125 disabled:cursor-not-allowed disabled:brightness-75'
                         >
-                          <h1 className="text-sm  py-2 px-8">
-                            {lobby.started ? t("started") : t("join")}
-                          </h1>
+                          {lobby.started ? 'بدأت' : 'انضمام'}
                         </button>
                       </td>
                     </tr>
@@ -163,45 +146,96 @@ export const Lobbies = () => {
               </tbody>
             </table>
             {lobbies.length == 0 && (
-              <h1 className="my-8 text-center w-full text-3xl ">
-                {t("no_lobby")}
+              <h1 className='my-8 text-center w-full text-3xl'>
+                {t('no_lobby')}
               </h1>
             )}
           </div>
         ) : (
-          <div className="mt-8 mx-auto">
+          <div className='mt-8 mx-auto'>
             <Loading />
           </div>
         )}
       </div>
-      <div
-        className="absolute inset-0 bg-cover bg-center -z-30"
-        style={{ backgroundImage: "url(images/index_bg.png)" }}
-      >
-        <img
-          width={1024}
-          className="absolute right-0 bottom-0 -z-10"
-          src="images/right_banner.png"
-          alt="r-banner"
-        />
-        <div
-          className="absolute -z-20 top-0 right-0"
-          style={{
-            height: "100%",
-            width: "520px",
-            background:
-              "linear-gradient(180deg, rgba(102, 7, 7, 1) 0%, #000 100%)",
-          }}
-        ></div>
-        <div
-          className="absolute top-0 left-0 w-full h-16 bg-contain bg-left"
-          style={{ zIndex: -21, backgroundImage: "url(images/top_banner.png)" }}
-        ></div>
-        <div
-          className="absolute bottom-0 left-0 w-full h-16 bg-contain bg-left"
-          style={{ zIndex: -21, backgroundImage: "url(images/top_banner.png)" }}
-        ></div>
-      </div>
+      {/* <div
+        className='absolute inset-0 bg-cover bg-center -z-30'
+        style={{ backgroundImage: 'url(images/mainBG.png)' }}
+      ></div> */}
     </div>
   );
 };
+
+// export const Lobbies = () => {
+//   const rooms = [
+//     {
+//       id: 1,
+//       leader: 'Ali Koç',
+//       map: 'de_default',
+//       time: '5 دقائق',
+//       players: '1/4',
+//     },
+//     {
+//       id: 2,
+//       leader: 'Ali Koç',
+//       map: 'de_default',
+//       time: '5 دقائق',
+//       players: '1/4',
+//     },
+//     {
+//       id: 1,
+//       leader: 'Ali Koç',
+//       map: 'de_default',
+//       time: '5 دقائق',
+//       players: '1/4',
+//     },
+//     {
+//       id: 2,
+//       leader: 'Ali Koç',
+//       map: 'de_default',
+//       time: '5 دقائق',
+//       players: '1/4',
+//     },
+//   ];
+
+//   return (
+//     <div
+//       className='min-h-screen bg-gradient-to-b from-[#14052e]/90 to-[#16181d]/95 p-10'
+//       dir='rtl'
+//     >
+//       {/* العنوان */}
+//       <div className='flex items-center justify-between mb-8'>
+//         <h1 className='text-3xl font-bold text-white'>قائمة الغرف</h1>
+//         <button className='px-4 py-2 bg-violet-600 hover:bg-violet-500 text-white rounded-lg shadow-lg'>
+//           إنشاء غرفة جديدة +
+//         </button>
+//       </div>
+
+//       {/* الغرف */}
+//       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+//         {rooms.map((room) => (
+//           <div
+//             key={room.id}
+//             className='rounded-xl border border-white/10 p-5 bg-white/5 backdrop-blur-md shadow-lg hover:scale-[1.02] transition'
+//           >
+//             <div className='flex items-center justify-between mb-3'>
+//               <span className='text-white font-semibold'>{room.leader}</span>
+//               <span className='text-xs text-white/60'>القائد</span>
+//             </div>
+//             <p className='text-sm text-white/80'>🗺️ الخريطة: {room.map}</p>
+//             <p className='text-sm text-white/80'>⏱️ الوقت: {room.time}</p>
+//             <p className='text-sm text-white/80'>👥 اللاعبين: {room.players}</p>
+
+//             <div className='flex gap-3 mt-4'>
+//               <button className='flex-1 bg-violet-600 hover:bg-violet-500 text-white rounded-lg py-2'>
+//                 انضمام
+//               </button>
+//               <button className='flex-1 bg-white/10 hover:bg-white/20 text-white rounded-lg py-2'>
+//                 مشاهدة
+//               </button>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
