@@ -89,30 +89,6 @@ export const LobbySettings = () => {
   return (
     <div className='flex flex-col gap-4 h-full w-full'>
       <div
-        className='relative flex items-center gap-3 rounded p-4'
-        style={{
-          height: 66,
-          background:
-            'radial-gradient(69.19% 36.84% at 50% 80.26%, rgba(255, 255, 255, 0.10) 0%, rgba(153, 153, 153, 0.10) 100%)',
-        }}
-      >
-        <div
-          className='rounded w-12 h-12 flex items-center justify-center'
-          style={{
-            background:
-              'radial-gradient(69.19% 36.84% at 50% 80.26%, rgba(255, 255, 255, 0.10) 0%, rgba(153, 153, 153, 0.10) 100%)',
-          }}
-        >
-          <img src='images/icons/gear.svg' alt='gear' />
-        </div>
-        <div className='overflow-hidden'>
-          <h1 className=' text-xs text-white/55'>{t('lobby')}</h1>
-          <h1 className=' text-lg overflow-hidden text-ellipsis'>
-            {t('settings')}
-          </h1>
-        </div>
-      </div>
-      <div
         className='relative flex items-center gap-3 rounded px-4 py-3'
         style={{
           height: 66,
@@ -121,18 +97,9 @@ export const LobbySettings = () => {
         }}
       >
         <div className='w-full flex items-center gap-3'>
-          <div
-            className='rounded w-12 h-12 flex items-center justify-center'
-            style={{
-              background:
-                'radial-gradient(69.19% 36.84% at 50% 80.26%, rgba(255, 255, 255, 0.10) 0%, rgba(153, 153, 153, 0.10) 100%)',
-            }}
-          >
-            <img src='images/icons/gear.svg' alt='gear' />
-          </div>
           <div className='overflow-hidden'>
             <h1 className=' text-lg overflow-hidden text-ellipsis'>
-              {t('current_map')}
+              الخريطة الحالية
             </h1>
           </div>
         </div>
@@ -162,7 +129,7 @@ export const LobbySettings = () => {
         }}
       >
         <div
-          className='w-full h-full rounded bg-[#121212] max-xl:h-80'
+          className='w-full h-full rounded bg-[#121212] max-xl:h-72'
           style={{
             background: `url(${getMapPic(
               currentLobby?.map?.image
@@ -180,15 +147,6 @@ export const LobbySettings = () => {
                 'radial-gradient(69.19% 36.84% at 50% 80.26%, rgba(255, 255, 255, 0.10) 0%, rgba(153, 153, 153, 0.10) 100%)',
             }}
           >
-            <div
-              className='rounded w-12 h-12 min-w-12 flex items-center justify-center'
-              style={{
-                background:
-                  'radial-gradient(69.19% 36.84% at 50% 80.26%, rgba(255, 255, 255, 0.10) 0%, rgba(153, 153, 153, 0.10) 100%)',
-              }}
-            >
-              <img src='images/icons/gear.svg' alt='gear' />
-            </div>
             <div className='overflow-hidden whitespace-nowrap min-w-min mr-2 max-2xl:hidden'>
               <h1 className=' text-xs text-white/55'>{t('lobby')}</h1>
               <h1 className=' text-lg overflow-hidden text-ellipsis'>
@@ -229,7 +187,7 @@ export const LobbySettings = () => {
             </button>
           </div>
         </div>
-        <div
+        {/* <div
           className='relative flex items-center gap-3 rounded p-4 w-full'
           style={{
             height: 66,
@@ -237,15 +195,6 @@ export const LobbySettings = () => {
               'radial-gradient(69.19% 36.84% at 50% 80.26%, rgba(255, 255, 255, 0.10) 0%, rgba(153, 153, 153, 0.10) 100%)',
           }}
         >
-          <div
-            className='rounded w-12 h-12 min-w-12 flex items-center justify-center'
-            style={{
-              background:
-                'radial-gradient(69.19% 36.84% at 50% 80.26%, rgba(255, 255, 255, 0.10) 0%, rgba(153, 153, 153, 0.10) 100%)',
-            }}
-          >
-            <img src='images/icons/gear.svg' alt='gear' />
-          </div>
           <div className='overflow-hidden whitespace-nowrap max-2xl:hidden'>
             <h1 className=' text-xs text-white/55'>{t('lobby')}</h1>
             <h1 className=' text-lg overflow-hidden text-ellipsis'>
@@ -269,7 +218,7 @@ export const LobbySettings = () => {
               />
             ))}
           </div>
-        </div>
+        </div> */}
         <div
           className='relative flex items-center gap-3 rounded p-4'
           style={{
@@ -278,15 +227,6 @@ export const LobbySettings = () => {
               'radial-gradient(69.19% 36.84% at 50% 80.26%, rgba(255, 255, 255, 0.10) 0%, rgba(153, 153, 153, 0.10) 100%)',
           }}
         >
-          <div
-            className='rounded w-12 h-12 min-w-12 flex items-center justify-center'
-            style={{
-              background:
-                'radial-gradient(69.19% 36.84% at 50% 80.26%, rgba(255, 255, 255, 0.10) 0%, rgba(153, 153, 153, 0.10) 100%)',
-            }}
-          >
-            <img src='images/icons/gear.svg' alt='gear' />
-          </div>
           <div className='whitespace-nowrap max-2xl:hidden w-min'>
             <h1 className=' text-xs text-white/55'>{t('lobby')}</h1>
             <h1 className=' text-lg overflow-hidden text-ellipsis'>
