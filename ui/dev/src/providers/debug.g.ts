@@ -68,7 +68,7 @@ debugData([
       kd_rate: 1.5,
       kills: 10,
       loses: 1,
-      name: '0Resmon Dev',
+      name: 'عبدالله مشالي',
       photo: undefined,
       played_matches: 88,
       wins: 20,

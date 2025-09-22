@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 /* @font-face {
-  font-family: 'd_kallisto';
-  src: local('d_kallisto'),
-    url('/fonts/d_kallisto/d_kallisto.otf') format('OpenType');
+  font-family: 'tajawal';
+  src: local('tajawal'),
+    url('/fonts/tajawal/tajawal.otf') format('OpenType');
 }
 
 @font-face {
